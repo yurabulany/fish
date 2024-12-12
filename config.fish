@@ -27,6 +27,7 @@ alias b='btop'
 alias lg='lazygit'
 alias up='cd ..'
 alias wq='exit'
+alias home='cd ~/'
 
 #yt-dlp
 alias ytv="yt-dlp -f 'bv*[height=1080]+ba'"
