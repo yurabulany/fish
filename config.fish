@@ -12,8 +12,10 @@ end
 fish_vi_key_bindings
 
 #alias
-alias su='sudo dnf5 upgrade --refresh --best --allowerasing -y && flatpak update -y'
-alias si='sudo dnf5 install'
+alias su='sudo apt update && sudo apt upgrade'
+alias fu='flatpak update'
+#alias su='sudo dnf5 upgrade --refresh --best --allowerasing -y && flatpak update -y'
+alias si='sudo apt install'
 alias sf='dnf search'
 alias sr='sudo dnf5 remove'
 alias t='tmux'
@@ -28,10 +30,15 @@ alias lg='lazygit'
 alias up='cd ..'
 alias wq='exit'
 alias home='cd ~/'
+alias cl='clear'
 
+# docker Commands
+alias ds='sudo systemctl start docker.service && sudo systemctl start containerd.service'
+alias dx='sudo systemctl stop docker.service && sudo systemctl stop containerd.service'
+#
 #yt-dlp
 alias ytv="yt-dlp -f 'bv*[height=1080]+ba'"
-alias yta='yt-dlp -f 'ba' -x --audio-format mp3'
+alias yta='yt-dlp -f ba -x --audio-format mp3'
 
 #mpv
 alias mnc='mpv --cache=no'
@@ -42,11 +49,16 @@ alias mnc='mpv --cache=no'
 # abbr -a gps git push origin
 # abbr -a gss git status
 
+# Adding startship
+starship init fish | source
+#
+# Set up fzf key bindings
+fzf --fish | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/lucia/Yura/google-cloud/google-cloud-sdk/path.fish.inc' ]
-    . '/home/lucia/Yura/google-cloud/google-cloud-sdk/path.fish.inc'
-end
-
-# Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
-complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+# if [ -f '/home/lucia/Yura/google-cloud/google-cloud-sdk/path.fish.inc' ]
+#     . '/home/lucia/Yura/google-cloud/google-cloud-sdk/path.fish.inc'
+# end
+# 
+# # Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
+# complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
