@@ -16,14 +16,14 @@ alias su='sudo apt update && sudo apt upgrade'
 alias fu='flatpak update'
 #alias su='sudo dnf5 upgrade --refresh --best --allowerasing -y && flatpak update -y'
 alias si='sudo apt install'
-alias sf='dnf search'
-alias sr='sudo dnf5 remove'
+alias sf='sudo apt search'
+alias sr='sudo apt remove'
 alias t='tmux'
 alias h='htop'
 alias v='vifm'
 alias c='cmus'
-alias clean='sudo dnf5 autoremove -y && sudo dnf clean all && 
-  sudo dnf remove --duplicates && flatpak uninstall --unused -y && sudo journalctl --vacuum-time=1weeks'
+# alias clean='sudo dnf5 autoremove -y && sudo dnf clean all && 
+#  sudo dnf remove --duplicates && flatpak uninstall --unused -y && sudo journalctl --vacuum-time=1weeks'
 alias k='sudo ./kmonad ~/.config/kmonad/config.kbd'
 alias b='btop'
 alias lg='lazygit'
@@ -31,6 +31,7 @@ alias up='cd ..'
 alias wq='exit'
 alias home='cd ~/'
 alias cl='clear'
+alias cat='batcat'
 
 # docker Commands
 alias ds='sudo systemctl start docker.service && sudo systemctl start containerd.service'
@@ -54,6 +55,11 @@ starship init fish | source
 #
 # Set up fzf key bindings
 fzf --fish | source
+
+# function to use fd
+function fd
+    fdfind $argv
+end
 
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/home/lucia/Yura/google-cloud/google-cloud-sdk/path.fish.inc' ]
